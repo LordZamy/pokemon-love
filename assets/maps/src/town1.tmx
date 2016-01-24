@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16" tilecount="6072" columns="88">
+  <image source="../tilesets/emerald.png" width="1408" height="1104"/>
+ </tileset>
+ <layer name="Grass" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKHj+4dejoGCq6aqqqqqqqqqqqrPH9yzE4k=
+  </data>
+ </layer>
+ <layer name="Trees" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0bENgDAMAEGYIGwJ+09ACtIwwUX6lyy3tm6cx3HN2bXx3X/PeTb+Y90/8iDKwyoPqzys8rDKwyoPqzys8rDKwyoPqzys8rDKwyoPqzys8rDKwyoPqzys8rDKwyoPq7/H7nv9s/t+AW6TRQM=
+  </data>
+ </layer>
+</map>

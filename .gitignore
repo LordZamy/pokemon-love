@@ -44,3 +44,6 @@ luac.out
 /rocks/*
 !/rocks/init.lua
 !/rocks/config.lua
+
+# Project folders
+assets/maps/build

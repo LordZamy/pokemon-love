@@ -39,3 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
+# loverocks files
+*.rock
+/rocks/*
+!/rocks/init.lua
+!/rocks/config.lua

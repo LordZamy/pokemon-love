@@ -5,7 +5,7 @@ local anim8 = require "ext/anim8/anim8"
 -- Include the Player class
 local Player = require 'src/player/player'
 
-function love.load ()
+function love.load()
     -- Load Maps
     map = sti.new("assets/maps/build/town1.lua")
 
@@ -13,22 +13,21 @@ function love.load ()
     spriteLayer = map:addCustomLayer("Sprites", 3)
 
     -- Just trying stuff here
-    playerSheet = love.graphics.newImage("assets/spritesheets/players.png")
-
-    local g = anim8.newGrid(31, 31, playerSheet:getWidth(), playerSheet:getHeight())
-
-    animation = anim8.newAnimation(g(1, 1, 2, 1, 3, 1, 4, 1), 0.2)
+    player = Player:new()
+    player:sheet("assets/spritesheets/players.png")
+    player:grid(31, 31)
+    player:animation("turn", player:frames(1, 1, 2, 1, 3, 1, 4, 1), 0.2)
 end
 
-function love.update (dt)
+function love.update(dt)
     map:update(dt)
 
-    animation:update(dt)
+    player:animation("turn"):update(dt)
 end
 
-function love.draw ()
+function love.draw()
     map:draw()
 
-    animation:draw(playerSheet, 100, 200)
+    player:animation("turn"):draw(player:sheet(), 100, 200)
 end
 

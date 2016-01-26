@@ -4,6 +4,8 @@ local sti = require "ext/sti"
 local anim8 = require "ext/anim8/anim8"
 -- Include the Player class
 local Player = require 'src/player/player'
+-- Add PlayerController
+local PlayerController = require 'src/player/controller'
 
 function love.load()
     -- Load Maps
@@ -12,11 +14,9 @@ function love.load()
     -- add custom sprite layer
     spriteLayer = map:addCustomLayer("Sprites", 3)
 
-    -- Just trying stuff here
+    -- create and init player
     player = Player:new()
-    player:sheet("assets/spritesheets/players.png")
-    player:grid(31, 31)
-    player:animation("turn", player:frames(1, 1, 2, 1, 3, 1, 4, 1), 0.2)
+    PlayerController.init(player)
 end
 
 function love.update(dt)

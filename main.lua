@@ -22,12 +22,12 @@ end
 function love.update(dt)
     map:update(dt)
 
-    player:animation("turn"):update(dt)
+    player:animation("walk_up"):update(dt)
 end
 
 function love.draw()
     map:draw()
 
-    player:animation("turn"):draw(player:sheet(), 100, 200)
+    player:animation("walk_up"):draw(player:sheet(), 100, 200)
 end
 

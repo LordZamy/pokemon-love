@@ -13,7 +13,7 @@ function PlayerController.init(player)
 end
 
 function defineAnimations(player)
-    local duration = 0.2
+    local duration = 0.4
     -- walk down
     player:animation("walk_down", player:frames(1, 1, 1, 2, 1, 1, 1, 3), duration)
     -- walk left

@@ -1,6 +1,11 @@
 PlayerController = {}
 
-function PlayerController.init(player)
+local player
+
+function PlayerController.init(playerObject)
+    -- set local copy of player to reference passed in object
+    player = playerObject
+
     -- load sprite sheet
     player:sheet("assets/spritesheets/player_animations.png")
 
@@ -9,10 +14,10 @@ function PlayerController.init(player)
     player:grid(16, 22, player:sheet():getWidth(), player:sheet():getHeight(), 0, 0, 0)
 
     -- create animations
-    defineAnimations(player)
+    defineAnimations()
 end
 
-function defineAnimations(player)
+function defineAnimations()
     local duration = 0.4
     -- walk down
     player:animation("walk_down", player:frames(1, 1, 1, 2, 1, 1, 1, 3), duration)

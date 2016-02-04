@@ -1,14 +1,17 @@
 InputController = {}
 
 local bindings = {
-
+    moveUp = function() print("up") end,
+    moveDown = function() print("down") end,
+    moveLeft = function() print("left") end,
+    moveRight = function() print("right") end,
 }
 
 local keys = {
-    up      = function() end,
-    down    = function() end,
-    left    = function() end,
-    right   = function() end,
+    up      = "moveUp",
+    down    = "moveDown",
+    left    = "moveLeft",
+    right   = "moveRight",
 }
 
 function InputController.handler(key)

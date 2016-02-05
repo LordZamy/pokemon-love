@@ -2,7 +2,7 @@ PlayerController = {}
 
 local player
 
-function PlayerController.init(playerObject)
+function PlayerController:init(playerObject)
     -- set local copy of player to reference passed in object
     player = playerObject
 
@@ -15,6 +15,9 @@ function PlayerController.init(playerObject)
 
     -- create animations
     defineAnimations()
+
+    -- starting animation
+    self.changeAnimation("walk_down")
 end
 
 function defineAnimations()
@@ -27,6 +30,11 @@ function defineAnimations()
     player:animation("walk_up", player:frames(3, 1, 3, 2, 3, 1, 3, 3), duration)
     -- walk right
     player:animation("walk_right", player:frames(4, 1, 4, 2, 4, 1, 4, 3), duration)
+end
+
+-- method to interface with player animation change
+function PlayerController.changeAnimation(name)
+    player:animation(name)
 end
 
 return PlayerController

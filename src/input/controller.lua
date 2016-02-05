@@ -1,11 +1,6 @@
 InputController = {}
 
-local bindings = {
-    moveUp = function() print("up") end,
-    moveDown = function() print("down") end,
-    moveLeft = function() print("left") end,
-    moveRight = function() print("right") end,
-}
+local controllers = {}
 
 local keys = {
     up      = "moveUp",
@@ -13,6 +8,17 @@ local keys = {
     left    = "moveLeft",
     right   = "moveRight",
 }
+
+local bindings = {
+    moveUp      = function() controllers.player.changeAnimation("walk_up") end,
+    moveDown    = function() controllers.player.changeAnimation("walk_down") end,
+    moveLeft    = function() controllers.player.changeAnimation("walk_left") end,
+    moveRight   = function() controllers.player.changeAnimation("walk_right") end,
+}
+
+function InputController:init(ctrls)
+    controllers.player = ctrls.PlayerController
+end
 
 function InputController.handler(key)
     local binding = keys[key]

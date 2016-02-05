@@ -49,14 +49,21 @@ function Sprite:frames(...)
     return self.animGrid(...)
 end
 
-local animations = {}
+-- sprite animations defined here
+Sprite.animations = {}
+
+-- current sprite animation
+Sprite.currentAnimation = nil
 
 -- creates an anim8 animation and adds to the animations table
--- if only name is given then returns the animation from the table
+-- if only name is given then sets current sprite animation
 function Sprite:animation(name, frames, durations, onLoop)
-    if not frames then return animations[name] end
+    if not frames then
+        self.currentAnimation = self.animations[name]
+        return
+    end
     local anim = anim8.newAnimation(frames, durations, onLoop)
-    animations[name] = anim
+    self.animations[name] = anim
 end
 
 return Sprite

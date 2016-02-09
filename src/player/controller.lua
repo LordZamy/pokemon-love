@@ -20,6 +20,12 @@ function PlayerController:init(playerObject)
     self.changeAnimation("walk_down")
 end
 
+-- updates player position every frame
+function PlayerController:update(dt)
+    player.pos.x = player.pos.x - (player.pos.x - player.targetPos.x) * dt * player.speed
+    player.pos.y = player.pos.y - (player.pos.y - player.targetPos.y) * dt * player.speed
+end
+
 function defineAnimations()
     local duration = 0.4
     -- walk down
@@ -35,6 +41,25 @@ end
 -- method to interface with player animation change
 function PlayerController.changeAnimation(name)
     player:animation(name)
+end
+
+-- moves player and sets new animation
+function PlayerController:move(direction)
+    self.changeAnimation("walk_" .. direction)
+    self.snapTo(direction)
+end
+
+-- sets the player's target position for grid snapping
+function PlayerController.snapTo(direction)
+    if direction == "up" then
+        player.targetPos.y = player.targetPos.y - 16
+    elseif direction == "down" then
+        player.targetPos.y = player.targetPos.y + 16
+    elseif direction == "left" then
+        player.targetPos.x = player.targetPos.x - 16
+    elseif direction == "right" then
+        player.targetPos.x = player.targetPos.x + 16
+    end
 end
 
 return PlayerController

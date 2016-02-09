@@ -49,7 +49,7 @@ function Sprite:frames(...)
     return self.animGrid(...)
 end
 
--- sprite animations defined here
+-- anim8 animations are stored here
 Sprite.animations = {}
 
 -- current sprite animation
@@ -59,6 +59,7 @@ Sprite.currentAnimation = nil
 -- if only name is given then sets current sprite animation
 function Sprite:animation(name, frames, durations, onLoop)
     if not frames then
+        if self.animations[name] == nil then error("No Animation named " .. name) end
         self.currentAnimation = self.animations[name]
         return
     end

@@ -1,8 +1,15 @@
 local Sprite = require 'src/sprite/sprite'
 
 local defaults = {
-    x = 32,
-    y = 32,
+    pos = {
+        x = 0,
+        y = -8
+    },
+    targetPos = {
+        x = 0,
+        y = -8
+    },
+    speed = 10,
     money = 1000,
 }
 

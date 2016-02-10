@@ -10,10 +10,10 @@ local keys = {
 }
 
 local bindings = {
-    moveUp      = function() controllers.player.changeAnimation("walk_up") end,
-    moveDown    = function() controllers.player.changeAnimation("walk_down") end,
-    moveLeft    = function() controllers.player.changeAnimation("walk_left") end,
-    moveRight   = function() controllers.player.changeAnimation("walk_right") end,
+    moveUp      = function() controllers.player:move("up") end,
+    moveDown    = function() controllers.player:move("down") end,
+    moveLeft    = function() controllers.player:move("left") end,
+    moveRight   = function() controllers.player:move("right") end,
 }
 
 function InputController:init(ctrls)

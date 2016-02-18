@@ -9,6 +9,10 @@ local PlayerController = require "src/player/controller"
 -- Add InputController
 local InputController = require "src/input/controller"
 
+
+-- globals
+GRID_SZ = 16
+
 function love.load()
     -- Load Maps
     map = sti.new("assets/maps/build/town1.lua")
@@ -28,12 +32,14 @@ function love.update(dt)
     map:update(dt)
 
     player.currentAnimation:update(dt)
+
+    PlayerController:update(dt)
 end
 
 function love.draw()
     map:draw()
 
-    player.currentAnimation:draw(player:sheet(), 100, 200)
+    player.currentAnimation:draw(player:sheet(), player.pos.x, player.pos.y)
 end
 
 function love.keypressed(key)

@@ -52,13 +52,13 @@ end
 -- sets the player's target position for grid snapping
 function PlayerController.snapTo(direction)
     if direction == "up" then
-        player.targetPos.y = player.targetPos.y - 16
+        player.targetPos.y = player.targetPos.y - GRID_SZ
     elseif direction == "down" then
-        player.targetPos.y = player.targetPos.y + 16
+        player.targetPos.y = player.targetPos.y + GRID_SZ
     elseif direction == "left" then
-        player.targetPos.x = player.targetPos.x - 16
+        player.targetPos.x = player.targetPos.x - GRID_SZ
     elseif direction == "right" then
-        player.targetPos.x = player.targetPos.x + 16
+        player.targetPos.x = player.targetPos.x + GRID_SZ
     end
 end
 
